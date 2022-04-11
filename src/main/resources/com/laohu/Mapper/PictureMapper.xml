@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.laohu.Mapper.PictureMapper">
+    <!--//添加图片-->
+    <insert id="savePicture">
+        insert into myblog.t_picture(pictureaddress, picturedescription, picturename, picturetime)
+         VALUE (#{picture.pictureaddress},#{picture.picturedescription},#{picture.picturename},#{picture.picturetime})
+    </insert>
+    <!--更新照片-->
+    <update id="updatePicture">
+        update myblog.t_picture
+        set picturename = #{picture.picturename}, picturetime = #{picture.picturetime}, pictureaddress = #{picture.pictureaddress}, picturedescription = #{picture.picturedescription}
+        where id = #{picture.id};
+    </update>
+    <!--删除照片-->
+    <delete id="deletePicture">
+        delete from myblog.t_picture where id=#{id}
+    </delete>
+    <!--查询所有照片-->
+    <select id="listPicture" resultType="com.laohu.Pojo.Picture">
+        select *from myblog.t_picture order by t_picture.id desc
+    </select>
+    <!--根据id查询-->
+    <select id="getPicture" resultType="com.laohu.Pojo.Picture">
+        select *from myblog.t_picture where id=#{id}
+    </select>
+</mapper>

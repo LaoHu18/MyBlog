@@ -1,0 +1,21 @@
+package com.laohu.Hander;
+
+import org.springframework.web.servlet.HandlerInterceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * @Description: 登录过滤拦截
+ */
+public class LoginHandler implements HandlerInterceptor {
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //        判断session里面是否有用户，没有的话重定向到登录页面，给拦截掉
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/admin");
+            return false;
+        }
+        return true;
+    }
+}

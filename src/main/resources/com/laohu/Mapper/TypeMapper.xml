@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.laohu.Mapper.TypeMapper">
+    <!--存储分类-->
+    <insert id="saveType">
+        insert into t_type(name) values (#{type.name})
+    </insert>
+    <!--编辑修改分类-->
+    <update id="updateType">
+        update t_type set name=#{type.name} where id=#{type.id}
+    </update>
+    <!--删除分类-->
+    <delete id="deleteById">
+        delete from t_type where id=#{id}
+    </delete>
+
+    <!--获取所有分类-->
+    <select id="getAllType" resultType="com.laohu.Pojo.Type">
+        select *from t_type
+    </select>
+    <!--根据id查询分类-->
+    <select id="getType" resultType="com.laohu.Pojo.Type">
+        select *from t_type where id=#{id}
+    </select>
+    <!--根据分类名查询分类-->
+    <select id="getTypeByName" resultType="com.laohu.Pojo.Type">
+        select *from t_type where name=#{name}
+    </select>
+    <!--查询所有分类及对应的文章-->
+    <resultMap id="type" type="com.laohu.Pojo.Type">
+        <id property="id" column="tid"/>
+        <result property="name" column="name"/>
+        <collection property="blogs" ofType="com.laohu.Pojo.Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+            <result property="typeId" column="type_id"/>
+        </collection>
+    </resultMap>
+    <select id="getAllTypeAndBlog" resultMap="type">
+        select t.id tid, t.name, b.id bid, b.title,b.type_id
+        from myblog.t_type t,myblog.t_blog b
+        where t.id = b.type_id
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+#发布配置文件
+server:
+  port: 8001
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: laohu
+    password: 5841314zhiaini
+
+logging:
+  level:
+    root: info
+    com.laohu: debug
+  file:
+    name: log/blog-pro.log

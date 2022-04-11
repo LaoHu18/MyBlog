@@ -1,0 +1,26 @@
+#??thymeleaf????????????
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+
+  # 上传文件大小，总的最大值，单个最大值
+  servlet:
+    multipart:
+      max-request-size: 30MB
+      max-file-size: 5MB
+
+comment:
+  avatar: /images/avatar.png
+message:
+  avatar: /images/avatar.png
+
+
+
+# 七牛云的相关配置
+qiniu:
+  url: image.laohu18.xyz
+  accessKey: pLo-aiDuQq73SE5qcNynMjlqVl4RUMLh9YR12GjP
+  accessSecretKey: gOOAicOqtWiJL_s6SlRiH4HVw7Su1tsW-D77QH7a
+  bucket: laohublog
