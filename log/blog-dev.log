@@ -1,40 +1,5 @@
-2022-04-10 20:46:09.760  INFO 15120 --- [main] com.laohu.MyBlogApplication              : Starting MyBlogApplication using Java 1.8.0_181 on DESKTOP-PSKS468 with PID 15120 (D:\java\Blog\MyBlog\target\classes started by 23757 in D:\java\Blog\MyBlog)
-2022-04-10 20:46:09.799 DEBUG 15120 --- [main] com.laohu.MyBlogApplication              : Running with Spring Boot v2.6.6, Spring v5.3.18
-2022-04-10 20:46:09.800  INFO 15120 --- [main] com.laohu.MyBlogApplication              : The following 1 profile is active: "dev"
-2022-04-10 20:46:13.489  INFO 15120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
-2022-04-10 20:46:13.510  INFO 15120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-04-10 20:46:13.511  INFO 15120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
-2022-04-10 20:46:14.132  INFO 15120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-04-10 20:46:14.132  INFO 15120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4194 ms
-2022-04-10 20:46:15.914  INFO 15120 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2022-04-10 20:46:16.531  INFO 15120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
-2022-04-10 20:46:16.564  INFO 15120 --- [main] com.laohu.MyBlogApplication              : Started MyBlogApplication in 8.577 seconds (JVM running for 11.2)
-2022-04-10 20:47:20.016  INFO 15120 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-10 20:47:20.016  INFO 15120 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-10 20:47:20.018  INFO 15120 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-04-10 20:47:20.176  INFO 15120 --- [http-nio-8001-exec-1] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.index', args=[{}, 1, {}, org.apache.catalina.connector.RequestFacade@7946288d]}
-2022-04-10 20:47:20.436  INFO 15120 --- [http-nio-8001-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-04-10 20:47:21.772  INFO 15120 --- [http-nio-8001-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-04-10 20:47:21.807 DEBUG 15120 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM myblog.t_blog b, myblog.t_type t, myblog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
-2022-04-10 20:47:21.852 DEBUG 15120 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==> Parameters: 
-2022-04-10 20:47:22.426 DEBUG 15120 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : <==      Total: 1
-2022-04-10 20:47:22.450 DEBUG 15120 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : ==>  Preparing: select * from myblog.t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4;
-2022-04-10 20:47:22.451 DEBUG 15120 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : ==> Parameters: 
-2022-04-10 20:47:22.469 DEBUG 15120 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : <==      Total: 0
-2022-04-10 20:47:22.507  INFO 15120 --- [http-nio-8001-exec-1] com.laohu.Aspect.LogAspect               : Result : index
-2022-04-10 20:47:23.694  INFO 15120 --- [http-nio-8001-exec-10] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.blogMessage', args=[{}]}
-2022-04-10 20:47:23.698 DEBUG 15120 --- [http-nio-8001-exec-10] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==>  Preparing: select count(*) from myblog.t_blog
-2022-04-10 20:47:23.698 DEBUG 15120 --- [http-nio-8001-exec-10] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==> Parameters: 
-2022-04-10 20:47:23.699 DEBUG 15120 --- [http-nio-8001-exec-10] c.laohu.Mapper.BlogMapper.getBlogTotal   : <==      Total: 1
-2022-04-10 20:47:23.700 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==>  Preparing: select coalesce (sum(views),0) from myblog.t_blog
-2022-04-10 20:47:23.702 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==> Parameters: 
-2022-04-10 20:47:23.704 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.Mapper.BlogMapper.getBlogViewTotal   : <==      Total: 1
-2022-04-10 20:47:23.705 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.M.BlogMapper.getBlogCommentTotal     : ==>  Preparing: select count(*) from myblog.t_comment
-2022-04-10 20:47:23.705 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.M.BlogMapper.getBlogCommentTotal     : ==> Parameters: 
-2022-04-10 20:47:23.735 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.M.BlogMapper.getBlogCommentTotal     : <==      Total: 1
-2022-04-10 20:47:23.736 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.M.BlogMapper.getBlogMessageTotal     : ==>  Preparing: select count(*) from myblog.t_message
-2022-04-10 20:47:23.736 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.M.BlogMapper.getBlogMessageTotal     : ==> Parameters: 
-2022-04-10 20:47:23.749 DEBUG 15120 --- [http-nio-8001-exec-10] c.l.M.BlogMapper.getBlogMessageTotal     : <==      Total: 1
-2022-04-10 20:47:23.750  INFO 15120 --- [http-nio-8001-exec-10] com.laohu.Aspect.LogAspect               : Result : index :: blogMessage
-2022-04-10 20:47:42.600  INFO 15120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-04-10 20:47:42.804  INFO 15120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-04-15 21:08:57.195  INFO 6652 --- [main] com.laohu.MyBlogApplicationTests         : Starting MyBlogApplicationTests using Java 1.8.0_181 on DESKTOP-PSKS468 with PID 6652 (started by 23757 in D:\java\Blog\MyBlog)
+2022-04-15 21:08:57.201 DEBUG 6652 --- [main] com.laohu.MyBlogApplicationTests         : Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-15 21:08:57.202  INFO 6652 --- [main] com.laohu.MyBlogApplicationTests         : The following 1 profile is active: "dev"
+2022-04-15 21:09:02.456  INFO 6652 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-15 21:09:03.398  INFO 6652 --- [main] com.laohu.MyBlogApplicationTests         : Started MyBlogApplicationTests in 8.02 seconds (JVM running for 12.128)

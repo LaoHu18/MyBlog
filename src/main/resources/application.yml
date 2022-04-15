@@ -3,7 +3,7 @@ spring:
   thymeleaf:
     mode: HTML
   profiles:
-    active: dev
+    active: pro
 
   # 上传文件大小，总的最大值，单个最大值
   servlet:

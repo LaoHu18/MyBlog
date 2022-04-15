@@ -56,6 +56,7 @@ public class BlogServiceImpl implements BlogService{
     @Override
     //编辑修改的文章
     public int updateBlog(ShowBlog showBlog) {
+        showBlog.setUpdateTime(new Date());
         return blogMapper.updateBlog(showBlog);
     }
 
