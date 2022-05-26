@@ -3,3 +3,216 @@
 2022-04-15 21:08:57.202  INFO 6652 --- [main] com.laohu.MyBlogApplicationTests         : The following 1 profile is active: "dev"
 2022-04-15 21:09:02.456  INFO 6652 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-04-15 21:09:03.398  INFO 6652 --- [main] com.laohu.MyBlogApplicationTests         : Started MyBlogApplicationTests in 8.02 seconds (JVM running for 12.128)
+2022-05-26 13:56:14.314  INFO 248 --- [main] com.laohu.MyBlogApplication              : Starting MyBlogApplication using Java 1.8.0_31 on DESKTOP-JNJRBDE with PID 248 (D:\JAVA\Blog\MyBlog\target\classes started by huqua in D:\JAVA\Blog\MyBlog)
+2022-05-26 13:56:14.317 DEBUG 248 --- [main] com.laohu.MyBlogApplication              : Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-05-26 13:56:14.318  INFO 248 --- [main] com.laohu.MyBlogApplication              : The following 1 profile is active: "dev"
+2022-05-26 13:56:16.971  INFO 248 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2022-05-26 13:56:16.973  INFO 248 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-05-26 13:56:16.973  INFO 248 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-05-26 13:56:16.973  INFO 248 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-05-26 13:56:17.070  INFO 248 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-05-26 13:56:17.080  INFO 248 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-26 13:56:17.081  INFO 248 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-05-26 13:56:17.250  INFO 248 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-26 13:56:17.250  INFO 248 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2833 ms
+2022-05-26 13:56:18.587  INFO 248 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-26 13:56:19.044  INFO 248 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2022-05-26 13:56:19.054  INFO 248 --- [main] com.laohu.MyBlogApplication              : Started MyBlogApplication in 5.787 seconds (JVM running for 8.209)
+2022-05-26 13:56:28.769  INFO 248 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-26 13:56:28.770  INFO 248 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-26 13:56:28.771  INFO 248 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-05-26 13:56:28.853  INFO 248 --- [http-nio-8001-exec-1] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.index', args=[{}, 1, {}, org.apache.catalina.connector.RequestFacade@745ba428]}
+2022-05-26 13:56:28.961  INFO 248 --- [http-nio-8001-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-26 13:56:29.536  INFO 248 --- [http-nio-8001-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-26 13:56:29.544 DEBUG 248 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM myblog.t_blog b, myblog.t_type t, myblog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2022-05-26 13:56:29.570 DEBUG 248 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==> Parameters: 
+2022-05-26 13:56:29.597 DEBUG 248 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : <==      Total: 1
+2022-05-26 13:56:29.602 DEBUG 248 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description, t.name , u.nickname, u.avatar from myblog.t_blog b, myblog.t_type t,myblog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2022-05-26 13:56:29.603 DEBUG 248 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2022-05-26 13:56:29.611 DEBUG 248 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : <==      Total: 10
+2022-05-26 13:56:29.613 DEBUG 248 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : ==>  Preparing: select * from myblog.t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4;
+2022-05-26 13:56:29.613 DEBUG 248 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : ==> Parameters: 
+2022-05-26 13:56:29.617 DEBUG 248 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : <==      Total: 3
+2022-05-26 13:56:29.622  INFO 248 --- [http-nio-8001-exec-1] com.laohu.Aspect.LogAspect               : Result : index
+2022-05-26 13:56:54.322  INFO 248 --- [http-nio-8001-exec-3] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.index', args=[{}, 1, {}, org.apache.catalina.connector.RequestFacade@745ba428]}
+2022-05-26 13:56:54.330 DEBUG 248 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM myblog.t_blog b, myblog.t_type t, myblog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2022-05-26 13:56:54.331 DEBUG 248 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==> Parameters: 
+2022-05-26 13:56:54.332 DEBUG 248 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : <==      Total: 1
+2022-05-26 13:56:54.332 DEBUG 248 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description, t.name , u.nickname, u.avatar from myblog.t_blog b, myblog.t_type t,myblog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2022-05-26 13:56:54.333 DEBUG 248 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2022-05-26 13:56:54.340 DEBUG 248 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : <==      Total: 10
+2022-05-26 13:56:54.341 DEBUG 248 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : ==>  Preparing: select * from myblog.t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4;
+2022-05-26 13:56:54.341 DEBUG 248 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : ==> Parameters: 
+2022-05-26 13:56:54.343 DEBUG 248 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : <==      Total: 3
+2022-05-26 13:56:54.344  INFO 248 --- [http-nio-8001-exec-3] com.laohu.Aspect.LogAspect               : Result : index
+2022-05-26 13:57:24.009  INFO 248 --- [http-nio-8001-exec-2] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.blogMessage', args=[{}]}
+2022-05-26 13:57:24.010 DEBUG 248 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==>  Preparing: select count(*) from myblog.t_blog
+2022-05-26 13:57:24.010 DEBUG 248 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==> Parameters: 
+2022-05-26 13:57:24.011 DEBUG 248 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : <==      Total: 1
+2022-05-26 13:57:24.012 DEBUG 248 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==>  Preparing: select coalesce (sum(views),0) from myblog.t_blog
+2022-05-26 13:57:24.012 DEBUG 248 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==> Parameters: 
+2022-05-26 13:57:24.013 DEBUG 248 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : <==      Total: 1
+2022-05-26 13:57:24.014 DEBUG 248 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : ==>  Preparing: select count(*) from myblog.t_comment
+2022-05-26 13:57:24.014 DEBUG 248 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : ==> Parameters: 
+2022-05-26 13:57:24.016 DEBUG 248 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : <==      Total: 1
+2022-05-26 13:57:24.016 DEBUG 248 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : ==>  Preparing: select count(*) from myblog.t_message
+2022-05-26 13:57:24.017 DEBUG 248 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : ==> Parameters: 
+2022-05-26 13:57:24.019 DEBUG 248 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : <==      Total: 1
+2022-05-26 13:57:24.019  INFO 248 --- [http-nio-8001-exec-2] com.laohu.Aspect.LogAspect               : Result : index :: blogMessage
+2022-05-26 13:57:41.318  INFO 248 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-26 13:57:41.511  INFO 248 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-26 13:57:48.466  INFO 10800 --- [main] com.laohu.MyBlogApplication              : Starting MyBlogApplication using Java 1.8.0_31 on DESKTOP-JNJRBDE with PID 10800 (D:\JAVA\Blog\MyBlog\target\classes started by huqua in D:\JAVA\Blog\MyBlog)
+2022-05-26 13:57:48.468 DEBUG 10800 --- [main] com.laohu.MyBlogApplication              : Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-05-26 13:57:48.469  INFO 10800 --- [main] com.laohu.MyBlogApplication              : The following 1 profile is active: "dev"
+2022-05-26 13:57:50.420  INFO 10800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2022-05-26 13:57:50.421  INFO 10800 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-05-26 13:57:50.422  INFO 10800 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-05-26 13:57:50.422  INFO 10800 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-05-26 13:57:50.427  INFO 10800 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-05-26 13:57:50.435  INFO 10800 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-26 13:57:50.435  INFO 10800 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-05-26 13:57:50.569  INFO 10800 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-26 13:57:50.569  INFO 10800 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1927 ms
+2022-05-26 13:57:51.535  INFO 10800 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-26 13:57:51.961  INFO 10800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2022-05-26 13:57:51.972  INFO 10800 --- [main] com.laohu.MyBlogApplication              : Started MyBlogApplication in 4.152 seconds (JVM running for 5.102)
+2022-05-26 13:57:57.969  INFO 10800 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-26 13:57:57.970  INFO 10800 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-26 13:57:57.971  INFO 10800 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-05-26 13:57:58.010  INFO 10800 --- [http-nio-8001-exec-1] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.index', args=[{}, 1, {}, org.apache.catalina.connector.RequestFacade@5505c214]}
+2022-05-26 13:57:58.090  INFO 10800 --- [http-nio-8001-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-26 13:57:58.246  INFO 10800 --- [http-nio-8001-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-26 13:57:58.255 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM myblog.t_blog b, myblog.t_type t, myblog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2022-05-26 13:57:58.285 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==> Parameters: 
+2022-05-26 13:57:58.307 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : <==      Total: 1
+2022-05-26 13:57:58.311 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description, t.name , u.nickname, u.avatar from myblog.t_blog b, myblog.t_type t,myblog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2022-05-26 13:57:58.314 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2022-05-26 13:57:58.322 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : <==      Total: 10
+2022-05-26 13:57:58.324 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : ==>  Preparing: select * from myblog.t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4;
+2022-05-26 13:57:58.325 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : ==> Parameters: 
+2022-05-26 13:57:58.328 DEBUG 10800 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : <==      Total: 3
+2022-05-26 13:57:58.337  INFO 10800 --- [http-nio-8001-exec-1] com.laohu.Aspect.LogAspect               : Result : index
+2022-05-26 13:57:58.971  INFO 10800 --- [http-nio-8001-exec-2] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.blogMessage', args=[{}]}
+2022-05-26 13:57:58.973 DEBUG 10800 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==>  Preparing: select count(*) from myblog.t_blog
+2022-05-26 13:57:58.974 DEBUG 10800 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==> Parameters: 
+2022-05-26 13:57:58.975 DEBUG 10800 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : <==      Total: 1
+2022-05-26 13:57:58.976 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==>  Preparing: select coalesce (sum(views),0) from myblog.t_blog
+2022-05-26 13:57:58.976 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==> Parameters: 
+2022-05-26 13:57:58.980 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : <==      Total: 1
+2022-05-26 13:57:58.981 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : ==>  Preparing: select count(*) from myblog.t_comment
+2022-05-26 13:57:58.981 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : ==> Parameters: 
+2022-05-26 13:57:58.982 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : <==      Total: 1
+2022-05-26 13:57:58.983 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : ==>  Preparing: select count(*) from myblog.t_message
+2022-05-26 13:57:58.983 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : ==> Parameters: 
+2022-05-26 13:57:58.984 DEBUG 10800 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : <==      Total: 1
+2022-05-26 13:57:58.985  INFO 10800 --- [http-nio-8001-exec-2] com.laohu.Aspect.LogAspect               : Result : index :: blogMessage
+2022-05-26 13:58:12.805  INFO 10800 --- [http-nio-8001-exec-3] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.index', args=[{}, 1, {}, org.apache.catalina.connector.RequestFacade@5505c214]}
+2022-05-26 13:58:12.817 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM myblog.t_blog b, myblog.t_type t, myblog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2022-05-26 13:58:12.818 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==> Parameters: 
+2022-05-26 13:58:12.819 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : <==      Total: 1
+2022-05-26 13:58:12.820 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description, t.name , u.nickname, u.avatar from myblog.t_blog b, myblog.t_type t,myblog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2022-05-26 13:58:12.820 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2022-05-26 13:58:12.835 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : <==      Total: 10
+2022-05-26 13:58:12.835 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : ==>  Preparing: select * from myblog.t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4;
+2022-05-26 13:58:12.835 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : ==> Parameters: 
+2022-05-26 13:58:12.837 DEBUG 10800 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : <==      Total: 3
+2022-05-26 13:58:12.837  INFO 10800 --- [http-nio-8001-exec-3] com.laohu.Aspect.LogAspect               : Result : index
+2022-05-26 13:58:25.239  INFO 10800 --- [http-nio-8001-exec-4] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.index', args=[{}, 1, {}, org.apache.catalina.connector.RequestFacade@5505c214]}
+2022-05-26 13:58:25.242 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM myblog.t_blog b, myblog.t_type t, myblog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2022-05-26 13:58:25.243 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==> Parameters: 
+2022-05-26 13:58:25.244 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : <==      Total: 1
+2022-05-26 13:58:25.245 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description, t.name , u.nickname, u.avatar from myblog.t_blog b, myblog.t_type t,myblog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2022-05-26 13:58:25.246 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2022-05-26 13:58:25.249 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.Mapper.BlogMapper.getFirstPageBlog   : <==      Total: 10
+2022-05-26 13:58:25.249 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getAllRecommendBlog     : ==>  Preparing: select * from myblog.t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4;
+2022-05-26 13:58:25.250 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getAllRecommendBlog     : ==> Parameters: 
+2022-05-26 13:58:25.253 DEBUG 10800 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getAllRecommendBlog     : <==      Total: 3
+2022-05-26 13:58:25.253  INFO 10800 --- [http-nio-8001-exec-4] com.laohu.Aspect.LogAspect               : Result : index
+2022-05-26 13:58:27.026  INFO 10800 --- [http-nio-8001-exec-5] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.blogMessage', args=[{}]}
+2022-05-26 13:58:27.027 DEBUG 10800 --- [http-nio-8001-exec-5] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==>  Preparing: select count(*) from myblog.t_blog
+2022-05-26 13:58:27.028 DEBUG 10800 --- [http-nio-8001-exec-5] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==> Parameters: 
+2022-05-26 13:58:27.030 DEBUG 10800 --- [http-nio-8001-exec-5] c.laohu.Mapper.BlogMapper.getBlogTotal   : <==      Total: 1
+2022-05-26 13:58:27.031 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==>  Preparing: select coalesce (sum(views),0) from myblog.t_blog
+2022-05-26 13:58:27.031 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==> Parameters: 
+2022-05-26 13:58:27.032 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.Mapper.BlogMapper.getBlogViewTotal   : <==      Total: 1
+2022-05-26 13:58:27.032 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.M.BlogMapper.getBlogCommentTotal     : ==>  Preparing: select count(*) from myblog.t_comment
+2022-05-26 13:58:27.033 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.M.BlogMapper.getBlogCommentTotal     : ==> Parameters: 
+2022-05-26 13:58:27.035 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.M.BlogMapper.getBlogCommentTotal     : <==      Total: 1
+2022-05-26 13:58:27.036 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.M.BlogMapper.getBlogMessageTotal     : ==>  Preparing: select count(*) from myblog.t_message
+2022-05-26 13:58:27.036 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.M.BlogMapper.getBlogMessageTotal     : ==> Parameters: 
+2022-05-26 13:58:27.038 DEBUG 10800 --- [http-nio-8001-exec-5] c.l.M.BlogMapper.getBlogMessageTotal     : <==      Total: 1
+2022-05-26 13:58:27.039  INFO 10800 --- [http-nio-8001-exec-5] com.laohu.Aspect.LogAspect               : Result : index :: blogMessage
+2022-05-26 14:00:42.756  INFO 10800 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-26 14:00:42.840  INFO 10800 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-26 14:07:43.149  INFO 8224 --- [main] com.laohu.MyBlogApplication              : Starting MyBlogApplication using Java 1.8.0_31 on DESKTOP-JNJRBDE with PID 8224 (D:\JAVA\Blog\MyBlog\target\classes started by huqua in D:\JAVA\Blog\MyBlog)
+2022-05-26 14:07:43.149 DEBUG 8224 --- [main] com.laohu.MyBlogApplication              : Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-05-26 14:07:43.149  INFO 8224 --- [main] com.laohu.MyBlogApplication              : The following 1 profile is active: "dev"
+2022-05-26 14:07:44.584  INFO 8224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2022-05-26 14:07:44.600  INFO 8224 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-05-26 14:07:44.600  INFO 8224 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-05-26 14:07:44.600  INFO 8224 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-05-26 14:07:44.600  INFO 8224 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-05-26 14:07:44.600  INFO 8224 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-26 14:07:44.600  INFO 8224 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-05-26 14:07:44.740  INFO 8224 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-26 14:07:44.740  INFO 8224 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1528 ms
+2022-05-26 14:07:45.632  INFO 8224 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-26 14:07:45.972  INFO 8224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2022-05-26 14:07:45.987  INFO 8224 --- [main] com.laohu.MyBlogApplication              : Started MyBlogApplication in 3.668 seconds (JVM running for 4.79)
+2022-05-26 14:07:57.052  INFO 8224 --- [http-nio-8001-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-26 14:07:57.052  INFO 8224 --- [http-nio-8001-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-26 14:07:57.054  INFO 8224 --- [http-nio-8001-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-05-26 14:07:57.094  INFO 8224 --- [http-nio-8001-exec-3] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.index', args=[{}, 1, {}, org.apache.catalina.connector.RequestFacade@4b7ef8a3]}
+2022-05-26 14:07:57.175  INFO 8224 --- [http-nio-8001-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-26 14:07:57.603  INFO 8224 --- [http-nio-8001-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-26 14:07:57.612 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM myblog.t_blog b, myblog.t_type t, myblog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2022-05-26 14:07:57.636 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==> Parameters: 
+2022-05-26 14:07:57.665 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : <==      Total: 1
+2022-05-26 14:07:57.670 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description, t.name , u.nickname, u.avatar from myblog.t_blog b, myblog.t_type t,myblog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2022-05-26 14:07:57.671 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2022-05-26 14:07:57.679 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.Mapper.BlogMapper.getFirstPageBlog   : <==      Total: 10
+2022-05-26 14:07:57.682 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : ==>  Preparing: select * from myblog.t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4;
+2022-05-26 14:07:57.682 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : ==> Parameters: 
+2022-05-26 14:07:57.687 DEBUG 8224 --- [http-nio-8001-exec-3] c.l.M.BlogMapper.getAllRecommendBlog     : <==      Total: 3
+2022-05-26 14:07:57.693  INFO 8224 --- [http-nio-8001-exec-3] com.laohu.Aspect.LogAspect               : Result : index
+2022-05-26 14:07:58.668  INFO 8224 --- [http-nio-8001-exec-2] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.blogMessage', args=[{}]}
+2022-05-26 14:07:58.670 DEBUG 8224 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==>  Preparing: select count(*) from myblog.t_blog
+2022-05-26 14:07:58.670 DEBUG 8224 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==> Parameters: 
+2022-05-26 14:07:58.671 DEBUG 8224 --- [http-nio-8001-exec-2] c.laohu.Mapper.BlogMapper.getBlogTotal   : <==      Total: 1
+2022-05-26 14:07:58.672 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==>  Preparing: select coalesce (sum(views),0) from myblog.t_blog
+2022-05-26 14:07:58.673 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==> Parameters: 
+2022-05-26 14:07:58.674 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.Mapper.BlogMapper.getBlogViewTotal   : <==      Total: 1
+2022-05-26 14:07:58.675 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : ==>  Preparing: select count(*) from myblog.t_comment
+2022-05-26 14:07:58.675 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : ==> Parameters: 
+2022-05-26 14:07:58.676 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogCommentTotal     : <==      Total: 1
+2022-05-26 14:07:58.677 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : ==>  Preparing: select count(*) from myblog.t_message
+2022-05-26 14:07:58.680 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : ==> Parameters: 
+2022-05-26 14:07:58.687 DEBUG 8224 --- [http-nio-8001-exec-2] c.l.M.BlogMapper.getBlogMessageTotal     : <==      Total: 1
+2022-05-26 14:07:58.689  INFO 8224 --- [http-nio-8001-exec-2] com.laohu.Aspect.LogAspect               : Result : index :: blogMessage
+2022-05-26 14:08:03.491  INFO 8224 --- [http-nio-8001-exec-1] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.index', args=[{}, 1, {}, org.apache.catalina.connector.RequestFacade@4b7ef8a3]}
+2022-05-26 14:08:03.513 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM myblog.t_blog b, myblog.t_type t, myblog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2022-05-26 14:08:03.514 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : ==> Parameters: 
+2022-05-26 14:08:03.515 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getFirstPageBlog_COUNT  : <==      Total: 1
+2022-05-26 14:08:03.515 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.create_time,b.update_time,b.description, t.name , u.nickname, u.avatar from myblog.t_blog b, myblog.t_type t,myblog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2022-05-26 14:08:03.516 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2022-05-26 14:08:03.525 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.Mapper.BlogMapper.getFirstPageBlog   : <==      Total: 10
+2022-05-26 14:08:03.527 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : ==>  Preparing: select * from myblog.t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4;
+2022-05-26 14:08:03.527 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : ==> Parameters: 
+2022-05-26 14:08:03.531 DEBUG 8224 --- [http-nio-8001-exec-1] c.l.M.BlogMapper.getAllRecommendBlog     : <==      Total: 3
+2022-05-26 14:08:03.531  INFO 8224 --- [http-nio-8001-exec-1] com.laohu.Aspect.LogAspect               : Result : index
+2022-05-26 14:08:06.166  INFO 8224 --- [http-nio-8001-exec-4] com.laohu.Aspect.LogAspect               : Request : {url='http://localhost:8001/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.laohu.Controller.IndexController.blogMessage', args=[{}]}
+2022-05-26 14:08:06.167 DEBUG 8224 --- [http-nio-8001-exec-4] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==>  Preparing: select count(*) from myblog.t_blog
+2022-05-26 14:08:06.168 DEBUG 8224 --- [http-nio-8001-exec-4] c.laohu.Mapper.BlogMapper.getBlogTotal   : ==> Parameters: 
+2022-05-26 14:08:06.168 DEBUG 8224 --- [http-nio-8001-exec-4] c.laohu.Mapper.BlogMapper.getBlogTotal   : <==      Total: 1
+2022-05-26 14:08:06.169 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==>  Preparing: select coalesce (sum(views),0) from myblog.t_blog
+2022-05-26 14:08:06.169 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.Mapper.BlogMapper.getBlogViewTotal   : ==> Parameters: 
+2022-05-26 14:08:06.170 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.Mapper.BlogMapper.getBlogViewTotal   : <==      Total: 1
+2022-05-26 14:08:06.170 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getBlogCommentTotal     : ==>  Preparing: select count(*) from myblog.t_comment
+2022-05-26 14:08:06.171 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getBlogCommentTotal     : ==> Parameters: 
+2022-05-26 14:08:06.171 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getBlogCommentTotal     : <==      Total: 1
+2022-05-26 14:08:06.172 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getBlogMessageTotal     : ==>  Preparing: select count(*) from myblog.t_message
+2022-05-26 14:08:06.172 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getBlogMessageTotal     : ==> Parameters: 
+2022-05-26 14:08:06.173 DEBUG 8224 --- [http-nio-8001-exec-4] c.l.M.BlogMapper.getBlogMessageTotal     : <==      Total: 1
+2022-05-26 14:08:06.173  INFO 8224 --- [http-nio-8001-exec-4] com.laohu.Aspect.LogAspect               : Result : index :: blogMessage
+2022-05-26 14:08:10.934  INFO 8224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-26 14:08:10.942  INFO 8224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
